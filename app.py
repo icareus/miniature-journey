@@ -12,5 +12,5 @@ def pic():
 	if request.method == 'GET':
 		pics = db.pics.find()
 		return JSON.dumps(pics)
-	else if request.method == 'POST':
+	elif request.method == 'POST':
 		return JSON.dumps(request.form)
