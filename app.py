@@ -1,8 +1,16 @@
 #!python
 
 from flask import Flask
-app = Flask(__name__)
+from pymongo import MongoClient
 
-@app.route('/')
-def hello_world():
-	return 'it works'
+app		= Flask(__name__)
+client	= MongoClient()
+db		= client['miniature-journey']
+
+@app.route('/pic', methods=['POST', 'GET'])
+def pic():
+	if request.method == 'GET':
+		pics = db.pics.find()
+		return JSON.dumps(pics)
+	else if request.method == 'POST':
+		return JSON.dumps(request.form)
