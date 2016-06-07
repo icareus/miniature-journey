@@ -1,5 +1,6 @@
 #!python
 
+import json
 from flask import Flask, request
 from pymongo import MongoClient
 
@@ -11,6 +12,6 @@ db		= client['miniature-journey']
 def pic():
 	if request.method == 'GET':
 		pics = db.pics.find()
-		return JSON.dumps(pics)
+		return json.dumps(pics)
 	elif request.method == 'POST':
-		return JSON.dumps(request.form)
+		return json.dumps(request.form)
