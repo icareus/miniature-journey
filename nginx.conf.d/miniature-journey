@@ -6,7 +6,7 @@ upstream mj {
 server {
 	listen 80;
 	listen [::]:80;
-	server_name ~m(iniature)?-j(ourney)?\.netblast\.me$;
+	server_name ~m(iniature)?-?j(ourney)?\.netblast\.me$;
 
 	access_log /home/tvalentim/miniature-journey/logs/access.log;
 	error_log /home/tvalentim/miniature-journey/logs/error.log;
@@ -28,10 +28,6 @@ server {
 		# as directory, then call app if available,
 		# otherwise fall back to displaying a 404.
 		try_files $uri $uri/ @miniature;
-	}
-
-	location /test {
-		autoindex on;
 	}
 	location @miniature {
 		proxy_pass		http://mj;	
